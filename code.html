@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>코드 정리 | Cave Robot</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    pre {
+      background: #111;
+      color: #0f0;
+      text-align: left;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 센서 및 제어 코드</h1>
+
+  <h2>DHT11 온습도 센서 테스트</h2>
+  <pre>
+#include &lt;DHT.h&gt;
+#define DHTPIN 2
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  Serial.print("Humidity: "); Serial.println(h);
+  Serial.print("Temp: "); Serial.println(t);
+  delay(2000);
+}
+  </pre>
+
+  <a href="index.html">⬅ 돌아가기</a>
+</body>
+</html>
